@@ -30,4 +30,8 @@ export default defineConfig({
   test: {
     root: path.resolve(__dirname, './src'),
   },
+  server: {
+    port: 5200,
+    host: true,
+  },
 });
