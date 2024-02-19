@@ -8,7 +8,7 @@ import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 import manifest from './manifest.json';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     TanStackRouterVite({
@@ -43,4 +43,5 @@ export default defineConfig({
     port: 5200,
     host: true,
   },
-});
+  base: mode === 'development' ? '/' : 'https://olegkireev.github.io/word-deck',
+}));
