@@ -21,7 +21,7 @@
     "prepare": "husky install && cp -n env/.shared .env &",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "lint:check": "eslint --max-warnings=0 \"src/**/*.{js,jsx,ts,tsx,json}\"",
-    "ts:check": "tsc --noEmit",
+    "ts:check": "tsc",
     "test:unit": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
@@ -36,6 +36,7 @@
     "@mui/material": "^5.15.0",
     "@mui/system": "^5.15.0",
     "@mui/utils": "^5.15.0",
+    "@tanstack/react-router": "^1.16.6",
     "is-mobile": "^4.0.0",
     "notistack": "^3.0.1",
     "react": "^18.2.0",
@@ -45,6 +46,8 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.40.1",
+    "@tanstack/router-devtools": "^1.16.6",
+    "@tanstack/router-vite-plugin": "^1.16.5",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.45",
@@ -70,7 +73,6 @@
       "prettier --write"
     ],
     "src/**/*.{js,jsx,ts,tsx,json}": [
-      "npm tsc",
       "eslint --max-warnings=0"
     ]
   },

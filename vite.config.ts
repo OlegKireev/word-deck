@@ -4,12 +4,16 @@ import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 import manifest from './manifest.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+    TanStackRouterVite({
+      routesDirectory: resolve(__dirname, './src/pages'),
+    }),
     VitePWA({
       manifest,
       includeAssets: [
@@ -39,5 +43,4 @@ export default defineConfig({
     port: 5200,
     host: true,
   },
-  base: 'https://olegkireev.github.io/word-deck',
 });
