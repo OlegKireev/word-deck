@@ -1,9 +1,10 @@
 name: e2e tests
 on:
   push:
-    branches: [main, master]
+    branches: [master]
   pull_request:
-    branches: [main, master]
+    branches: [master]
+  workflow_dispatch: # Adds the manual trigger action
 jobs:
   test:
     timeout-minutes: 60
