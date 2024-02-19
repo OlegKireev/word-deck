@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "type": "module",
   "description": "The app for learning new words in any language",
-  "homepage": "https://github.com/OlegKireev/word-deck",
+  "homepage": "https://olegkireev.github.io/word-deck",
   "repository": {
     "type": "git",
     "url": "https://github.com/OlegKireev/word-deck.git"
