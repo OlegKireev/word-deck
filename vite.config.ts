@@ -44,4 +44,12 @@ export default defineConfig(({ mode }) => ({
     host: true,
   },
   base: mode === 'development' ? '/' : 'https://olegkireev.github.io/word-deck',
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        404: resolve(__dirname, '404.html'),
+      },
+    },
+  },
 }));
