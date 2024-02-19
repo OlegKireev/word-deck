@@ -39,4 +39,5 @@ export default defineConfig({
     port: 5200,
     host: true,
   },
+  base: 'https://olegkireev.github.io/word-deck',
 });

@@ -24,7 +24,8 @@
     "ts:check": "tsc --noEmit",
     "test:unit": "vitest",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "deploy" : "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -53,6 +54,7 @@
     "@ubic/prettier-config": "^2.0.3",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.55.0",
+    "gh-pages": "^6.1.1",
     "https-localhost": "^4.7.1",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
