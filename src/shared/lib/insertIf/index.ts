@@ -7,9 +7,9 @@
  *   ...arrayInsertIf(condition, [conditionalItemC, conditionalItemD])
  * ]
  */
-function arrayInsertIf<T>(condition: unknown, items: T[]): T[] {
+export const arrayInsertIf = <T>(condition: unknown, items: T[]): T[] => {
   return condition ? items : [];
-}
+};
 
 /**
  * Helper function to enable the following syntax:
@@ -17,11 +17,9 @@ function arrayInsertIf<T>(condition: unknown, items: T[]): T[] {
  * {
  *   a: 0,
  *   b: 1,
- *   ...objectInsertIf(someCondition, { conditionalItemC: 2, conditionalItemD: 3 })
+ *   ...objectInsertIf(someCondition, { conditionalItemC: 2 })
  * }
  */
-function objectInsertIf<T>(condition: unknown, item: T): T | null {
+export const objectInsertIf = <T>(condition: unknown, item: T): T | null => {
   return condition ? item : null;
-}
-
-export { arrayInsertIf, objectInsertIf };
+};

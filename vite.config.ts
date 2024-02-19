@@ -1,9 +1,9 @@
+// eslint-disable-next-line spaced-comment
 /// <reference types="vitest" />
-import * as path from 'path';
+import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
-
 import manifest from './manifest.json';
 
 // https://vitejs.dev/config/
@@ -12,7 +12,12 @@ export default defineConfig({
     react(),
     VitePWA({
       manifest,
-      includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+      includeAssets: [
+        'favicon.svg',
+        'favicon.ico',
+        'robots.txt',
+        'apple-touch-icon.png',
+      ],
       // switch to "true" to enable sw on development
       devOptions: {
         enabled: false,
@@ -24,11 +29,11 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': resolve(__dirname, './src'),
     },
   },
   test: {
-    root: path.resolve(__dirname, './src'),
+    root: resolve(__dirname, './src'),
   },
   server: {
     port: 5200,

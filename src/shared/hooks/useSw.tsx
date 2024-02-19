@@ -1,14 +1,11 @@
 import { useCallback, useEffect, useRef } from 'react';
-
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
-
 import type { SnackbarKey } from 'notistack';
 import { useRegisterSW } from 'virtual:pwa-register/react';
-
 import useNotifications from '@/shared/hooks/useNotifications';
 
-export function useSw() {
+export const useSw = function useSw() {
   const [, notificationsActions] = useNotifications();
   const notificationKey = useRef<SnackbarKey | null>(null);
   const {
@@ -31,7 +28,9 @@ export function useSw() {
       notificationsActions.push({
         options: {
           autoHideDuration: 4500,
-          content: <Alert severity="success">App is ready to work offline.</Alert>,
+          content: (
+            <Alert severity="success">App is ready to work offline.</Alert>
+          ),
         },
       });
     } else if (needRefresh) {
@@ -49,7 +48,13 @@ export function useSw() {
         },
       });
     }
-  }, [close, needRefresh, offlineReady, notificationsActions, updateServiceWorker]);
+  }, [
+    close,
+    needRefresh,
+    offlineReady,
+    notificationsActions,
+    updateServiceWorker,
+  ]);
 
   return null;
-}
+};

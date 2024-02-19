@@ -1,7 +1,7 @@
 {
-  "name": "React PWA",
-  "short_name": "reactpwa",
-  "description": "Starter kit for modern web applications",
+  "name": "Word deck",
+  "short_name": "worddeck",
+  "description": "The app for learning new words in any language",
   "theme_color": "#ffffff",
   "icons": [
     {

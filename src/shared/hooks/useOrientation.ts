@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 
-function getOrientation() {
+const getOrientation = () => {
   return window.innerHeight > window.innerWidth;
-}
+};
 
-function useOrientation() {
+export const useOrientation = () => {
   const [isPortrait, setIsPortrait] = useState(getOrientation());
 
   useEffect(() => {
-    function handleResize() {
+    const handleResize = () => {
       setIsPortrait(getOrientation());
-    }
+    };
 
     window.addEventListener('resize', handleResize);
 
@@ -18,6 +18,4 @@ function useOrientation() {
   }, []);
 
   return isPortrait;
-}
-
-export default useOrientation;
+};

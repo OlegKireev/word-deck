@@ -1,5 +1,3 @@
-function resetApp() {
+export const resetApp = () => {
   return window.location.reload();
-}
-
-export default resetApp;
+};

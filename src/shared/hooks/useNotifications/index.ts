@@ -1,19 +1,19 @@
 import { useCallback, useMemo, useState } from 'react';
-
 import type { SnackbarKey } from 'notistack';
+import { type Actions, type Notification } from './types';
 
-import { Actions, Notification } from './types';
-
-function useNotifications(): [Notification[], Actions] {
+export const useNotifications = function useNotifications(): [
+  Notification[],
+  Actions,
+] {
   const [notifications, setNotifications] = useState<Notification[]>([]);
 
   const push = useCallback(
     (notification: Partial<Notification>) => {
       // TODO (Suren): use uuid
       const id = Math.random().toString();
-      setNotifications((notifications): Notification[] => [
-        // TODO (Suren): use immer
-        ...notifications,
+      setNotifications((oldNotifications): Notification[] => [
+        ...oldNotifications,
         {
           ...notification,
           message: notification.message,
@@ -32,8 +32,8 @@ function useNotifications(): [Notification[], Actions] {
 
   const close = useCallback(
     (key: SnackbarKey, dismissAll = !key) => {
-      setNotifications((notifications) =>
-        notifications.map((notification) =>
+      setNotifications((oldNotifications) =>
+        oldNotifications.map((notification) =>
           dismissAll || notification.options.key === key
             ? { ...notification, dismissed: true }
             : { ...notification },
@@ -45,16 +45,21 @@ function useNotifications(): [Notification[], Actions] {
 
   const remove = useCallback(
     (key: SnackbarKey) => {
-      setNotifications((notifications) =>
-        notifications.filter((notification) => notification.options.key !== key),
+      setNotifications((oldNotifications) =>
+        oldNotifications.filter(
+          (notification) => notification.options.key !== key,
+        ),
       );
     },
     [setNotifications],
   );
 
-  const actions = useMemo(() => ({ push, close, remove }), [push, close, remove]);
+  const actions = useMemo(
+    () => ({ push, close, remove }),
+    [push, close, remove],
+  );
 
   return [notifications, actions];
-}
+};
 
 export default useNotifications;
