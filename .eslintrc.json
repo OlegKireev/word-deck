@@ -1,3 +1,0 @@
-{
-  "extends": ["@ubic/eslint-config/react-typescript"]
-}
