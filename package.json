@@ -66,6 +66,7 @@
       "prettier --write"
     ],
     "src/**/*.{js,jsx,ts,tsx,json}": [
+      "npm tsc",
       "eslint --max-warnings=0"
     ]
   },
